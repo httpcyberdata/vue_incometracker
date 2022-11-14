@@ -24,16 +24,18 @@ export default {
 
     function AddIncome (data) {
       let d = data.date.split("-");
-      let newD = new Date(d(0), d[1], d[2])
+      let newD = new Date(d[0], d[1], d[2])
      state.income = [...state.income, {
       id: Date.now(),
-      desc: state.desc,
+      desc: data.desc,
       value: data.value,
       date: newD.getTime()
      }]
+     console.log(state.income)
     }
     return {
-      state
+      state,
+      AddIncome 
     }
   },
   name: 'App',
