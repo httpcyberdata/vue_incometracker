@@ -13,7 +13,7 @@ export default {
     props: {
         state: Object
     },
-    setup() {
+    setup(props, { emit }) {
         const formData = reactive({
             desc: null,
             value: null,
@@ -21,7 +21,15 @@ export default {
         });
         
         function FormHandler() {
-            console.log(formData);
+            emit('add-income', {
+                desc: formData.desc,
+                value: formData.value,
+                date: formData.date
+            });
+
+            formData.desc = null; 
+            formData.value = null;
+            formData.date = null;
         }
         return {
             FormHandler,

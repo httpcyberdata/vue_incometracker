@@ -1,6 +1,6 @@
 <template>
   <Header :totalIncome="state.totalIncome"/>
-  <Form />
+  <Form @add-income="AddIncome" />
 </template>
 
 <script>
@@ -20,7 +20,18 @@ export default {
         }
         return temp;
       })
-    })
+    });
+
+    function AddIncome (data) {
+      let d = data.date.split("-");
+      let newD = new Date(d(0), d[1], d[2])
+     state.income = [...state.income, {
+      id: Date.now(),
+      desc: state.desc,
+      value: data.value,
+      date: newD.getTime()
+     }]
+    }
     return {
       state
     }
