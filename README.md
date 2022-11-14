@@ -3,6 +3,8 @@
 Tutorial URL: https://www.youtube.com/watch?v=AjV7k7t78Ik
 Tutorial description: Learn how to build an income tracker in Vue 3 with the composition api. In this tutorial we look into the basics of Vue 3 and use methods such as setup(), Reactive, v-model and more to build a vuejs income tracker.
 
+(Instead of USD or British Pounds I used the Russia Ruble Symbol "₽" )
+
 ___________
 
 ### Software versions
@@ -13,7 +15,7 @@ ___________
 1. yarn install
 2. npm run start
 3. Open browser to localhost & port 8080
-4.
+
 
 
 ## Problems in the project:
@@ -23,7 +25,7 @@ ___________
 
 ### Photos of project:
 ![](/public/images//income_tracker_image.png)
-![]()
+![](/public/images/income_tracker_image2.png)
 
 ## Apps used:
 	- 
