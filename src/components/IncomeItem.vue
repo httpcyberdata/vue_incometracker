@@ -1,9 +1,9 @@
 <template>
   <div class="income-item">
-    <div class="removeItem"></div>
-    <div class="desc">Description...</div>
-    <div class="price">₽0</div>
-    <div class="date">Date...</div>
+    <div class="removeItem">x</div>
+    <div class="desc">{{ income.desc }}</div>
+    <div class="price">₽{{ income.value }}</div>
+    <div class="date">{{ income.date }}</div>
   </div>
 </template>
 
@@ -16,6 +16,7 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&family=Poppins:wght@300&display=swap');
 .income-item {
     position: relative;
     display: flex;
@@ -23,13 +24,14 @@ export default {
     background-color: #FFF;
     border-radius: 8px;
     max-width: 600px;
+    font-family: 'Poppins', sans-serif;
     margin: 0 auto 30px;
 }
 
 .removeItem {
     color: #EF2D2D;
-    font-weight: 600;
-    font-size: 20px;
+    font-weight: 900;
+    font-size: 25px;
     line-height: 1;
     text-align: center;
     margin: 0 15px;
@@ -43,7 +45,7 @@ export default {
 
 .price {
     color: #666;
-    max-width: 100px;
+    min-width: 100px;
     font-size: 20px;
 }
 
