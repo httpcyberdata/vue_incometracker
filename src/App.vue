@@ -1,19 +1,39 @@
 <template>
-  <Header />
+  <Header :totalIncome="state.totalIncome"/>
+  <Form />
 </template>
 
 <script>
-import Header from './components/Header'
 import { reactive, computed } from 'vue';
+import Header from './components/Header';
+import Form from './components/Form.vue';
 export default {
   setup() {
     const state = reactive({
-      income: [],
+      income: [{
+        value: 400
+      }, 
+      {
+        value: 500
+      }],
+      totalIncome: computed(() => {
+        let temp = 0;
+        if(state.income.length > 0) {
+          for(let i = 0; i < state.income.length; i++) {
+            temp += state.income[i].value;
+          }
+        }
+        return temp;
+      })
     })
+    return {
+      state
+    }
   },
   name: 'App',
   components: {
-    Header
+    Header,
+    Form
   }
 }
 </script>
