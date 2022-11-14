@@ -1,14 +1,33 @@
 <template>
-    <form>
-        <input type="text" placeholder="Description..." />
-        <input type="number" placeholder="Value..."/>
-        <input type="data" placeholder="Date..." />
-        <input type="submit" value="Submit" />
+    <form @submit.prevent="FormHandler">
+        <input type="text" placeholder="Description..." v-model="formData.desc" />
+        <input type="number" placeholder="Value..." v-model="formData.value" />
+        <input type="date" placeholder="Date..."  v-model="formData.date" />
+        <input type="submit" value="Submit"/>
     </form>
 </template>
 
 <script>
+import { reactive } from 'vue';
 export default {
+    props: {
+        state: Object
+    },
+    setup() {
+        const formData = reactive({
+            desc: null,
+            value: null,
+            date: null
+        });
+        
+        function FormHandler() {
+            console.log(formData);
+        }
+        return {
+            FormHandler,
+            formData
+        }
+    }
 }
 </script>
 
@@ -24,6 +43,8 @@ export default {
         border: none;
         outline: none;
         font-size: 20px;
+        padding: 20px 20px;
+        font-family: 'Fira Code', sans-serif;
     }
 
     form input::placeholder {
@@ -46,7 +67,7 @@ export default {
         color: #FFF;
         font-weight: 500;
         text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
-        padding: 5px 15px;
+        padding: 5px 35px;
         background-color: #FFCE00;
         cursor: pointer;
     }

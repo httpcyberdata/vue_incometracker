@@ -10,12 +10,7 @@ import Form from './components/Form.vue';
 export default {
   setup() {
     const state = reactive({
-      income: [{
-        value: 400
-      }, 
-      {
-        value: 500
-      }],
+      income: [],
       totalIncome: computed(() => {
         let temp = 0;
         if(state.income.length > 0) {
